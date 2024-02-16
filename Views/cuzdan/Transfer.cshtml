@@ -1,0 +1,28 @@
+﻿
+
+<form method="post" asp-controller="Cuzdan" asp-action="Transfer">
+    <h1>
+        Lütfen istenilen bilgileri eksiksiz bir şekilde tamamlayın.
+    </h1> 
+     <div>
+       <label for="AliciId" >Alıcı hesap ID</label>
+        <input id="AliciId" name="AliciId" class="form-control"/>
+    </div>
+    @if (ViewData["hatamesaj1"] != null)
+         {
+          <div class="text-danger">@ViewData["hatamesaj"]</div>
+         }
+    <div class="form-group">
+        <label for="Tmiktar">Göndermek istediğiniz miktar </label>
+        <input type="number" id="Tmiktar" name="Tmiktar" class="form-control"/>
+    </div>
+    @if (ViewData["hatamesaj"] != null)
+    {
+        <div class="text-danger">@ViewData["hatamesaj"]</div>
+    }
+    <h1>
+    </h1>
+    <button class="btn btn-lg btn-primary" type="submit">İşlemi Tamamla</button>
+
+
+</form>

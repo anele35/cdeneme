@@ -1,0 +1,55 @@
+﻿<div style="float: right;">
+    <form asp-controllers="cuzdanController" asp-action="Ekle">
+    <button type="submit" class="btn btn-primary">Cüzdan Ekle</button>
+</form>
+</div>
+<h1> Cüzdan Detayı </h1>
+<table class="table table-bordered">
+    
+    <thead>
+        <tr>
+            <th> Cüzdan ID </th>
+            <th> Cüzdan Sahibi </th>
+            <th> Bakiye </th>
+            <th> Para Yatır </th>
+            <th>Para Çek </th>
+            <th> Transfer </th>
+            <th>Cüzdanı Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuzdan in Model)
+        {
+            <tr>
+                <td>@cuzdan.Id</td>
+                <td>@cuzdan.cuzdanadi</td>
+                <td>@cuzdan.bakiye</td>
+                <td>
+                    <form asp-controllers="cuzdanController" asp-action="Paracek" asp-route-id="@cuzdan.Id"> 
+                        <button type="submit" class="btn btn-primary">Para Çek</button>
+                        <input type="hidden" name="Id" value="Id" />
+                    </form>
+                </td>
+                <td>
+                    <form asp-controllers="cuzdanController" asp-action="Parayatir" asp-route-id="@cuzdan.Id">
+                        <button type="submit" class="btn btn-primary">Para Yatır</button>
+                        <input type="hidden" name="Id" value="Id" />
+                    </form>
+                </td>
+                <td>   
+                    <form asp-controllers="cuzdanController" asp-action="Transfer" asp-route-id="@cuzdan.Id">
+                        <button type="submit" class="btn btn-primary">Transfer</button>
+                        <input type="hidden" name="Id" value="@cuzdan.Id" />
+                        </form>
+                </td>
+                <td>
+                    <form method="post" asp-controller="Cuzdan" asp-action="Cuzdansil" asp-route-id="@cuzdan.Id">
+                        <button type="submit" class="btn btn-danger">Cüzdanı Sil</button>
+                    </form>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,22 @@
+﻿@model Cuzdana
+
+<form asp-controller="Cuzdan" asp-action="Ekle" method="post">
+    <h1>
+        Cüzdan Eklemek için gerekli bilgileri girin.
+    </h1>
+
+    <div>
+        <label>Adınızı girin:</label>
+        <input asp-for="cuzdanadi" class="form-control"/>
+    </div>
+
+    <div>
+        <label>Bakiye girin:</label>
+        <input asp-for="bakiye" type="number" class="form-control"/>
+    </div>
+    <h1>
+    </h1>
+    <button class="btn btn-lg btn-primary" type="submit">Cüzdanı Ekle</button>
+
+
+</form>

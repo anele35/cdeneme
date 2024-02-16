@@ -1,0 +1,18 @@
+﻿@model Cuzdana
+
+<form asp-controller="Cuzdan" asp-action="Parayatir" method="post">
+
+    <h1>
+        Lütfen yatırmak istediğiniz miktarı girin.
+    </h1>
+
+    <div class="form-group">
+        <label for="yatirilan">Yatırılacak miktar:</label>
+        <input type="number" id="yatirilan" name="yatirilan" class="form-control"/>
+    </div>
+    <h1>
+    </h1>
+    <button class="btn btn-lg btn-primary" type="submit">Yatırımı Onayla</button>
+
+
+</form>
